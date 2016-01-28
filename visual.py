@@ -51,7 +51,7 @@ csstemplate = '''\
 importantpeople = ['Frank-Walter Steinmeier', 'Günter Heiß', 'August Hanning', 'Wolfgang Schäuble', 'Thomas de Maiziére', 'Ernst Uhrlau', 'Peter Altmaier', 'Ronald Pofalla', 'Klaus-Dieter Fritsche', 'Gerhard Schindler', 'Hans-Peter Friedrich']
 i = 1
 for val in importantpeople:
-	col = Color(hue=float(i)/float(len(importantpeople)), saturation=0.8, luminance=0.9)
+	col = Color(hue=float(i)/float(len(importantpeople)), saturation=0.8, luminance=0.8)
 	i += 1
 	output += csstemplate % (re.sub('\W+', '', val), col)
 
