@@ -77,6 +77,9 @@ Den Anstoß für diese Visualisierung gab die <a href="http://logbuch-netzpoliti
         <input type="button" id="partei" value="Parteizugehörigkeit"/>
     </div>
 </div>
+<div>
+<a href="https://github.com/corvusmo/geheime-koepfe" target="_blank">auf Github</a>
+</div>
 
 <script type="text/javascript">
 var today = new Date();
