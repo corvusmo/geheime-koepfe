@@ -66,7 +66,7 @@ output += '''\
 </head>
 <body>
 <div id="einleitung" style="font-size:13px;">
-Den Anstoß für diese Visualisierung gab die <a href="http://logbuch-netzpolitik.de/lnp168-es-war-nicht-alles-schlecht-im-rechtsstaat#t=43:23.003" target="_blank">Folge 168 des Podcast Logbuch Netzpolitik</a>. Der <a href="https://nelaco.de/lnp/bndbkamtmibfv.png">erste Versuch</a> war schnell erstellt, sehr einfach und nicht fehlerfrei (Fritsche). Außerdem wurde sich etwas "interaktives" gewünscht, hier nun also ein zweiter Versuch. <b>Hinweis:</b> In einigen Fällen habe ich bisher nur Jahreszahlen/Monate gefunden. In diesen Fällen wird immer der erste Tag als Start/End-Datum angenommen. Welche Daten das betrifft siehe Quellcode.<br />
+Den Anstoß für diese Visualisierung gab die <a href="http://logbuch-netzpolitik.de/lnp168-es-war-nicht-alles-schlecht-im-rechtsstaat#t=43:23.003" target="_blank">Folge 168 des Podcast Logbuch Netzpolitik</a>. Der <a href="https://nelaco.de/lnp/bndbkamtmibfv.png">erste Versuch</a> war schnell erstellt, sehr einfach und nicht fehlerfrei (Fritsche). Außerdem wurde sich etwas "interaktives" gewünscht, hier nun also ein zweiter Versuch. <b>Hinweis:</b> In einigen Fällen habe ich bisher nur Jahreszahlen/Monate gefunden. In diesen Fällen wird immer der erste Tag als Start/End-Datum angenommen.<br />
 <b>Mouseover:</b> vollständige Namen/Bezeichnungen<br />
 <b>Klick auf einen Namen:</b>  alle bisherigen Ämter der Person auf einen Blick (soweit die Daten schon eingetragen sind)<br />
 <b>Parteizugehörigkeit:</b> schaltet zwischen einer Darstellung der Parteizugehörigkeit und der Standardansicht hin und her
@@ -76,15 +76,6 @@ Den Anstoß für diese Visualisierung gab die <a href="http://logbuch-netzpoliti
     <div class="menu">
         <input type="button" id="partei" value="Parteizugehörigkeit"/>
     </div>
-</div>
-<div id="todo">
-<h3>to do</h3>
-<ul>
-<li>Daten ergänzen</li>
-<li>wo bisher nur Jahreszahl eingetragen, genaues Datum recherchieren</li>
-<li>Infos und Quellen verlinken</li>
-</ul>
-Noch Vorschläge, Ideen oder Beiträge? Gerne per Mail an nelacoättnelacopunktde (<a href="https://nelaco.de/public.asc">PGP</a>)
 </div>
 
 <script type="text/javascript">
