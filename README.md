@@ -8,7 +8,9 @@ Den Anstoß für diese Visualisierung gab die [Folge 168 des Podcast Logbuch Net
 
 **Voraussetzungen**
 
-Die Visualisierung erfolgt durch [vis.js](http://visjs.org/), benötigt werden hieraus die Bestandteile DataSet und Timeline.
+- [vis.js](http://visjs.org/), benötigt werden hieraus die Bestandteile DataSet und Timeline.
+- jQuery
+- Python-Modul Colour
 
 **to do**
 
