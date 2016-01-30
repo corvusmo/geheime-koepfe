@@ -31,6 +31,7 @@ output = '''\
 	<script src="jquery-2.1.4.min.js"></script>
 	<link href="vis.min.css" rel="stylesheet" type="text/css" />
 <style>
+	.vis-labelset {width:250px;}
 	.vis-item {border-width:2px;}
 	.vis-range {background-color:#ccc;}
 	.vis-range.selected, .person {border-color:#FF7500;background-color:#FFF785;}
@@ -71,13 +72,15 @@ Den Anstoß für diese Visualisierung gab die <a href="http://logbuch-netzpoliti
 <b>Klick auf einen Namen:</b>  alle bisherigen Ämter der Person auf einen Blick (soweit die Daten schon eingetragen sind)<br />
 <b>Parteizugehörigkeit:</b> schaltet zwischen einer Darstellung der Parteizugehörigkeit (<span class="cdsu">CDU/CSU</span>, <span class="spd">SPD</span>, <span class="fdp">FDP</span>, <span class="gruene">Grüne</span>, <span class="noparty">parteilos</span>, <span style="background-color:#ccc;">unbekannt</span>) und der Standardansicht hin und her
 </div>
-<div id="visualization" style="margin-top:10px;position:relative;">
+<div id="visualization_top" style="margin-top:10px;position:relative;">
 <noscript>Ohne Javascript geht hier leider nix :/</noscript>
-    <div class="menu">
-        <input type="button" id="partei" value="Parteizugehörigkeit"/>
-    </div>
+  <div class="menu">
+      <input type="button" id="partei" value="Parteizugehörigkeit"/>
+  </div>
 </div>
-<div style="margin-top:20px;font-size:13px;">
+<div id="visualization_bottom" style="margin-bottom:10px;position:relative;">
+</div>
+<div style="font-size:13px;">
 Noch Vorschläge, Ideen oder Beiträge? Gerne per Mail an nelacoättnelacopunktde (<a href="https://nelaco.de/public.asc">PGP</a>) oder <a href="https://github.com/corvusmo/geheime-koepfe" target="_blank">auf Github</a>.
 </div>
 
@@ -90,7 +93,7 @@ if(dd<10) { dd='0'+dd }
 if(mm<10) { mm='0'+mm } 
 today = yyyy+'-'+mm+'-'+dd;
 
-  var groups = new vis.DataSet([
+var groups = new vis.DataSet([
 '''
 
 # hier werden jetzt die groups erstellt
@@ -112,7 +115,7 @@ output += \
 {id:99,content:'Ereignisse',title:'Was so alles passiert ist',order:99}
 ]);
 
-  var items = new vis.DataSet([
+var items = new vis.DataSet([
 {id:'A',group:0,content:'Schröder I',className:'breg rg',start:'1998-10-27',end:'2002-10-22'},
 {id:'B',group:0,content:'Schröder II',className:'breg rg',start:'2002-10-22',end:'2005-11-22'},
 {id:'C',group:0,content:'Merkel I',className:'breg sr',start:'2005-11-22',end:'2009-10-28'},
@@ -147,33 +150,72 @@ for row in ereignisse:
 # the tail of the file
 output += ''']);
 
-  var name = '';
+var name = '';
 
-  var visiblegroups = new vis.DataView(groups, {
-    filter: function (group) {
-      return (group.id < 9) || (group.id == 99) || (group.id == name);
-    }
-  });
+var groups_top = new vis.DataView(groups, {
+	filter: function (group) {
+		return (group.id < 9) || (group.id == name && name !='');
+	}
+});
 
-  var visibleitems = new vis.DataView(items, {
-    filter: function (item) {
-      return (item.group < 9) || (item.group == 99) || (item.group == name);
-    }
-  });
+var items_top = new vis.DataView(items, {
+	filter: function (item) {
+		return (item.group < 9) || (item.group == name && name !='');
+	}
+});
 
-  var container = document.getElementById('visualization');
+var options_top = {
+	orientation: 'top',
+	selectable: false,
+	stack: false,
+	start: '2000-01-01',
+	end: '2016-12-31',
+};
 
-  var options = {
-    orientation: 'both',
-    selectable: false,
-    stack: false,
-    start: '2000-01-01',
-  };
+var groups_bottom = new vis.DataView(groups, {
+	filter: function (group) {
+		return (group.id == 99);
+	}
+});
 
-  var timeline = new vis.Timeline(container);
-  timeline.setOptions(options);
-  timeline.setGroups(visiblegroups);
-  timeline.setItems(visibleitems);
+var items_bottom = new vis.DataView(items, {
+	filter: function (item) {
+		return (item.group == 99);
+	}
+});
+
+var options_bottom = {
+	orientation: 'bottom',
+	selectable: false,
+	stack: true,
+	start: '2000-01-01',
+	end: '2016-12-31',
+};
+
+var container_top = document.getElementById('visualization_top');
+var container_bottom = document.getElementById('visualization_bottom');
+
+var timeline_top = new vis.Timeline(container_top);
+timeline_top.setOptions(options_top);
+timeline_top.setGroups(groups_top);
+timeline_top.setItems(items_top);
+
+var timeline_bottom = new vis.Timeline(container_bottom);
+timeline_bottom.setOptions(options_bottom);
+timeline_bottom.setGroups(groups_bottom);
+timeline_bottom.setItems(items_bottom);
+
+timeline_top.on('rangechange', function (properties) {
+	if (properties.byUser) {
+		timeline_bottom.setWindow(properties.start, properties.end, {animation:false});
+	}
+});
+
+timeline_bottom.on('rangechange', function (properties) {
+	if (properties.byUser) {
+		timeline_top.setWindow(properties.start, properties.end, {animation:false});
+	}
+});
 
 
 document.getElementById('partei').onclick = function () { 
@@ -191,8 +233,8 @@ $(".vis-item").click(function() {
 	$(nameclass).addClass("selected");
 
 	//and now try to update the DataView
-	visiblegroups.refresh();
-	visibleitems.refresh();
+	groups_top.refresh();
+	items_top.refresh();
 });
 </script>
 </body>
