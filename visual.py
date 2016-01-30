@@ -77,8 +77,8 @@ Den Anstoß für diese Visualisierung gab die <a href="http://logbuch-netzpoliti
         <input type="button" id="partei" value="Parteizugehörigkeit"/>
     </div>
 </div>
-<div>
-<a href="https://github.com/corvusmo/geheime-koepfe" target="_blank">auf Github</a>
+<div style="margin-top:20px;font-size:13px;">
+Noch Vorschläge, Ideen oder Beiträge? Gerne per Mail an nelacoättnelacopunktde (<a href="https://nelaco.de/public.asc">PGP</a>) oder <a href="https://github.com/corvusmo/geheime-koepfe" target="_blank">auf Github</a>.
 </div>
 
 <script type="text/javascript">
