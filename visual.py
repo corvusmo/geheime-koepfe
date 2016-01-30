@@ -69,7 +69,7 @@ output += '''\
 Den Anstoß für diese Visualisierung gab die <a href="http://logbuch-netzpolitik.de/lnp168-es-war-nicht-alles-schlecht-im-rechtsstaat#t=43:23.003" target="_blank">Folge 168 des Podcast Logbuch Netzpolitik</a>. Der <a href="https://nelaco.de/lnp/bndbkamtmibfv.png">erste Versuch</a> war schnell erstellt, sehr einfach und nicht fehlerfrei (Fritsche). Außerdem wurde sich etwas "interaktives" gewünscht, hier nun also ein zweiter Versuch. <b>Hinweis:</b> In einigen Fällen habe ich bisher nur Jahreszahlen/Monate gefunden. In diesen Fällen wird immer der erste Tag als Start/End-Datum angenommen.<br />
 <b>Mouseover:</b> vollständige Namen/Bezeichnungen<br />
 <b>Klick auf einen Namen:</b>  alle bisherigen Ämter der Person auf einen Blick (soweit die Daten schon eingetragen sind)<br />
-<b>Parteizugehörigkeit:</b> schaltet zwischen einer Darstellung der Parteizugehörigkeit und der Standardansicht hin und her
+<b>Parteizugehörigkeit:</b> schaltet zwischen einer Darstellung der Parteizugehörigkeit (<span class="cdsu">CDU/CSU</span>, <span class="spd">SPD</span>, <span class="fdp">FDP</span>, <span class="gruene">Grüne</span>, <span class="noparty">parteilos</span>, <span style="background-color:#ccc;">unbekannt</span>) und der Standardansicht hin und her
 </div>
 <div id="visualization" style="margin-top:10px;position:relative;">
 <noscript>Ohne Javascript geht hier leider nix :/</noscript>
