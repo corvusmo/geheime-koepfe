@@ -27,9 +27,9 @@ output = '''\
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Sichere und geheime Köpfe</title>
-	<script src="vis.min.js"></script>
-	<script src="jquery-2.1.4.min.js"></script>
-	<link href="vis.min.css" rel="stylesheet" type="text/css" />
+	<script src="lib/vis.min.js"></script>
+	<script src="lib/jquery-2.1.4.min.js"></script>
+	<link href="lib/vis.min.css" rel="stylesheet" type="text/css" />
 <style>
 	.vis-labelset {width:250px;}
 	.vis-item {border-width:2px;}
