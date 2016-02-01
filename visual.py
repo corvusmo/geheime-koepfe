@@ -34,10 +34,8 @@ output = '''\
 	.vis-labelset {width:250px;}
 	.vis-item {border-width:2px;}
 	.vis-range {background-color:#ccc;}
-	.vis-range.selected, .person {border-color:#FF7500;background-color:#FFF785;}
-	.vis-range.person {border-color:#FF7500;background-color:#FFCF00;}
 	.menu {position:absolute;top:0;left:20px;margin:10px;z-index:9999;}
-	.breg .vis-item-content{background-color:rgba(255,255,255,0.8);background-clip:content-box;}
+	.breg .vis-item-content {background-color:rgba(255,255,255,0.8);background-clip:content-box;}
 	.rg {background-image:linear-gradient(#f00 50%, #0c0 50%);}
 	.sg {background-image:linear-gradient(#000 50%, #ff0 50%);}
 	.sr {background-image:linear-gradient(#000 50%, #f00 50%);}
@@ -63,6 +61,8 @@ output += '''\
 	.fdp {background-color:#ff0;}
 	.gruene {background-color:#0c0;}
 	.noparty {background-color:#eee;}
+	.vis-range.selected, .person {border-color:#FF7500;background-color:#FFF785;color:#000;}
+	.vis-range.person {background-color:#FFCF00;}
 </style>
 </head>
 <body>
@@ -228,7 +228,7 @@ document.getElementById('partei').onclick = function () {
 
 $(".vis-item").click(function() {
 	$(".vis-range").removeClass("selected");
-	name = this.className.replace(/( |vis-item|vis-range|vis-readonly)/g,'');
+	name = this.className.replace(/( |vis-item|vis-range|vis-readonly|cdsu|spd|gruene|fdp|noparty)/g,'');
 	nameclass = '.' + name;
 	$(nameclass).addClass("selected");
 
