@@ -5,14 +5,18 @@ import csv
 import re
 from colour import Color
 
-templatefile = open('template.html', 'r')
-output = templatefile.read()
-templatefile.close()
+with open('template.html', 'r') as templatefile:
+  output = templatefile.read()
 
 # Read in raw data from csv
-ereignisse = csv.reader(open('ereignisse.csv', 'rb'), delimiter=',')
-aemterRaw =  csv.reader(open('aemter.csv', 'rb'), delimiter=',')
-zeitenRaw = csv.reader(open('amtszeiten.csv', 'rb'), delimiter=',')
+with open('ereignisse.csv', 'rb') as csvfile:
+  ereignisse = csv.reader(csvfile, delimiter=',')
+
+with open('aemter.csv', 'rb') as csvfile:
+  aemterRaw =  csv.reader(csvfile, delimiter=',')
+
+with open('amtszeiten.csv', 'rb') as csvfile:
+  zeitenRaw = csv.reader(csvfile, delimiter=',')
 
 #convert to lists (2d)
 zeiten = list(zeitenRaw)
@@ -80,6 +84,5 @@ output = output.replace("{'ITEMTEMPLATE':1}", itemoutput)
 output = output.replace("'today'", 'today')
 
 # opens an file to write the output to
-outFileHandle = open("index.html", "w")
-outFileHandle.write(output)
-outFileHandle.close()
+with open('index.html', 'w') as outFileHandle:
+  outFileHandle.write(output)
