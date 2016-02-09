@@ -6,21 +6,17 @@ import re
 from colour import Color
 
 with open('template.html', 'r') as templatefile:
-  output = templatefile.read()
+	output = templatefile.read()
 
 # Read in raw data from csv
-with open('ereignisse.csv', 'rb') as csvfile:
-  ereignisse = csv.reader(csvfile, delimiter=',')
 
 with open('aemter.csv', 'rb') as csvfile:
-  aemterRaw =  csv.reader(csvfile, delimiter=',')
+	aemterRaw =  csv.reader(csvfile, delimiter=',')
+	aemter = list(aemterRaw)
 
 with open('amtszeiten.csv', 'rb') as csvfile:
-  zeitenRaw = csv.reader(csvfile, delimiter=',')
-
-#convert to lists (2d)
-zeiten = list(zeitenRaw)
-aemter = list(aemterRaw)
+	zeitenRaw = csv.reader(csvfile, delimiter=',')
+	zeiten = list(zeitenRaw)
 
 #create set with all the names (without duplicates)
 nameset = set([])
@@ -32,7 +28,8 @@ cssoutput = ''
 csstemplate = '''
 	.%s {background-color:%s;}'''
 
-importantpeople = ['Frank-Walter Steinmeier', 'Günter Heiß', 'August Hanning', 'Wolfgang Schäuble', 'Thomas de Maiziére', 'Ernst Uhrlau', 'Peter Altmaier', 'Ronald Pofalla', 'Klaus-Dieter Fritsche', 'Gerhard Schindler', 'Hans-Peter Friedrich']
+with open('importantpeople.txt', 'rb') as importantpeoplefile:
+	importantpeople = importantpeoplefile.readlines()
 i = 1
 for val in importantpeople:
 	col = Color(hue=float(i)/float(len(importantpeople)), saturation=0.8, luminance=0.8)
@@ -74,9 +71,11 @@ for name in nameset:
 ereignissetemplate = '''{id:%s,group:99,content:'%s<br />%s',title:'%s',start:'%s'},
 '''
 
-for row in ereignisse:
-	itemoutput += ereignissetemplate % (i, row[0][8:10]+'.'+row[0][5:7]+'.'+row[0][:4], row[1], row[2], row[0])
-	i += 1
+with open('ereignisse.csv', 'rb') as csvfile:
+	ereignisse = csv.reader(csvfile, delimiter=',')
+	for row in ereignisse:
+		itemoutput += ereignissetemplate % (i, row[0][8:10]+'.'+row[0][5:7]+'.'+row[0][:4], row[1], row[2], row[0])
+		i += 1
 
 output = output.replace("//COLORTEMPLATE", cssoutput)
 output = output.replace("{'GROUPTEMPLATE':1}", groupoutput)
@@ -85,4 +84,4 @@ output = output.replace("'today'", 'today')
 
 # opens an file to write the output to
 with open('index.html', 'w') as outFileHandle:
-  outFileHandle.write(output)
+	outFileHandle.write(output)
