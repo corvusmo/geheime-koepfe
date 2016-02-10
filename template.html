@@ -66,7 +66,7 @@ var items = new vis.DataSet([
 {id:'E',group:0,content:'Merkel III',className:'breg sr',start:'2013-12-17',end:today},
 {'ITEMTEMPLATE':1}]);
 
-var name = '';
+var selectedname = '';
 
 var groups_top = new vis.DataView(groups, {
 	filter: function (group) {
@@ -90,13 +90,13 @@ var options_top = {
 
 var groups_bottom = new vis.DataView(groups, {
 	filter: function (group) {
-		return (group.id == 99) || (group.id == 6) || (group.id == name && name !='');
+		return (group.id == 99) || (group.id == 6) || (group.id == selectedname && selectedname !='');
 	}
 });
 
 var items_bottom = new vis.DataView(items, {
 	filter: function (item) {
-		return (item.group == 99) || (item.group == 6) || (item.group == name && name !='');
+		return (item.group == 99) || (item.group == 6) || (item.group == selectedname && selectedname !='');
 	}
 });
 
@@ -134,7 +134,7 @@ timeline_bottom.on('rangechange', function (properties) {
 });
 
 
-document.getElementById('partei').onclick = function () { 
+document.getElementById('partei').onclick = function() {
 	$(".ThomasdeMaizire, .WolfgangSchuble, .PeterAltmaier, .RonaldPofalla, .KlausDieterFritsche, .GnterHei, .HansPeterFriedrich, .EckartWerthebach").toggleClass("cdsu");
 	$(".FrankWalterSteinmeier, .ErnstUhrlau, .OttoSchily, .GttrikWewer, .ClausHenningSchapper, .BrigitteZypries").toggleClass("spd");
 	$(".GuidoWesterwelle, .GerhardSchindler").toggleClass("fdp");
@@ -145,13 +145,12 @@ document.getElementById('partei').onclick = function () {
 $(".vis-foreground").on('click', ".vis-item", function() {
 	if ( $(this).hasClass( 'selected') ) {
 		$(".vis-range").removeClass("selected");
-		name = '';
+		selectedname = '';
 	}
 	else {
 		$(".vis-range").removeClass("selected");
-		name = this.className.replace(/( |vis-item|vis-range|vis-readonly|cdsu|spd|gruene|fdp|noparty)/g,'');
-		nameclass = '.' + name;
-		$(nameclass).addClass("selected");
+		selectedname = this.className.replace(/( |vis-item|vis-range|vis-readonly|cdsu|spd|gruene|fdp|noparty)/g,'');
+		$("."+selectedname).addClass("selected");
 	}
 	//and now try to update the DataView
 	groups_bottom.refresh();
