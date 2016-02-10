@@ -69,13 +69,13 @@ var name = '';
 
 var groups_top = new vis.DataView(groups, {
 	filter: function (group) {
-		return (group.id < 9) || (group.id == name && name !='');
+		return (group.id < 9 && group.id != 6);
 	}
 });
 
 var items_top = new vis.DataView(items, {
 	filter: function (item) {
-		return (item.group < 9) || (item.group == name && name !='');
+		return (item.group < 9 && item.group != 6);
 	}
 });
 
@@ -89,13 +89,13 @@ var options_top = {
 
 var groups_bottom = new vis.DataView(groups, {
 	filter: function (group) {
-		return (group.id == 99);
+		return (group.id == 99) || (group.id == 6) || (group.id == name && name !='');
 	}
 });
 
 var items_bottom = new vis.DataView(items, {
 	filter: function (item) {
-		return (item.group == 99);
+		return (item.group == 99) || (item.group == 6) || (item.group == name && name !='');
 	}
 });
 
@@ -134,8 +134,8 @@ timeline_bottom.on('rangechange', function (properties) {
 
 
 document.getElementById('partei').onclick = function () { 
-	$(".ThomasdeMaizire, .WolfgangSchuble, .PeterAltmaier, .RonaldPofalla, .KlausDieterFritsche, .GnterHei, .HansPeterFriedrich").toggleClass("cdsu");
-	$(".FrankWalterSteinmeier, .ErnstUhrlau, .OttoSchily").toggleClass("spd");
+	$(".ThomasdeMaizire, .WolfgangSchuble, .PeterAltmaier, .RonaldPofalla, .KlausDieterFritsche, .GnterHei, .HansPeterFriedrich, .EckartWerthebach").toggleClass("cdsu");
+	$(".FrankWalterSteinmeier, .ErnstUhrlau, .OttoSchily, .GttrikWewer, .ClausHenningSchapper").toggleClass("spd");
 	$(".GuidoWesterwelle, .GerhardSchindler").toggleClass("fdp");
 	$(".JoschkaFischer").toggleClass("gruene");
 	$(".AugustHanning").toggleClass("noparty");
@@ -153,8 +153,8 @@ $(".vis-item").click(function() {
 		$(nameclass).addClass("selected");
 	}
 	//and now try to update the DataView
-	groups_top.refresh();
-	items_top.refresh();
+	groups_bottom.refresh();
+	items_bottom.refresh();
 });
 </script>
 </body>
