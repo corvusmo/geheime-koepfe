@@ -18,29 +18,29 @@ Den Anstoß für diese Visualisierung gab die [Folge 168 des Podcast Logbuch Net
 - Infos und Quellen verlinken
 - Bug: items weit außerhalb des angezeigten Bereichs werden von events nicht erfasst, da nicht im DOM
 - Daten ergänzen für:
-- [ ]August Hanning
-- [ ]Brigitte Zypries
-- [ ]Claus Henning Schapper
-- [ ]Cornelia Rogall-Grothe
-- [ ]Eckart Werthebach
-- [ ]Emily Haber
-- [ ]Ernst Uhrlau
-- [ ]Frank-Walter Steinmeier
-- [ ]Gerhard Schindler
-- [ ]Göttrik Wewer
-- [ ]Guido Westerwelle
-- [ ]Günter Heiß
-- [ ]Hans Bernhard Beus
-- [ ]Hans-Georg Engelke
-- [ ]Hans-Peter Friedrich
-- [ ]Johann Hahlen
-- [ ]Joschka Fischer
-- [ ]Klaus Vitt
-- [ ]Klaus-Dieter Fritsche
-- [ ]Lutz Diwell
-- [ ]Otto Schily
-- [ ]Peter Altmaier
-- [ ]Ronald Pofalla
-- [ ]Stefan Kaller
-- [ ]Thomas de Maiziére
-- [ ]Wolfgang Schäuble
+- [ ] August Hanning
+- [ ] Brigitte Zypries
+- [ ] Claus Henning Schapper
+- [ ] Cornelia Rogall-Grothe
+- [ ] Eckart Werthebach
+- [ ] Emily Haber
+- [ ] Ernst Uhrlau
+- [ ] Frank-Walter Steinmeier
+- [ ] Gerhard Schindler
+- [ ] Göttrik Wewer
+- [ ] Guido Westerwelle
+- [ ] Günter Heiß
+- [ ] Hans Bernhard Beus
+- [ ] Hans-Georg Engelke
+- [ ] Hans-Peter Friedrich
+- [ ] Johann Hahlen
+- [ ] Joschka Fischer
+- [ ] Klaus Vitt
+- [ ] Klaus-Dieter Fritsche
+- [ ] Lutz Diwell
+- [ ] Otto Schily
+- [ ] Peter Altmaier
+- [ ] Ronald Pofalla
+- [ ] Stefan Kaller
+- [ ] Thomas de Maiziére
+- [ ] Wolfgang Schäuble
