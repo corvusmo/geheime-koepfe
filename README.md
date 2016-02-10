@@ -17,4 +17,4 @@ Den Anstoß für diese Visualisierung gab die [Folge 168 des Podcast Logbuch Net
 - Daten ergänzen
 - wo bisher nur Jahreszahl eingetragen, genaues Datum recherchieren
 - Infos und Quellen verlinken
-
+- Bug: items weit außerhalb des angezeigten Bereichs werden von events nicht erfasst, da nicht im DOM
