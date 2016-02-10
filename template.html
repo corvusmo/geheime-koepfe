@@ -142,7 +142,7 @@ document.getElementById('partei').onclick = function () {
 	$(".AugustHanning").toggleClass("noparty");
 };
 
-$(".vis-item").click(function() {
+$(".vis-foreground").on('click', ".vis-item", function() {
 	if ( $(this).hasClass( 'selected') ) {
 		$(".vis-range").removeClass("selected");
 		name = '';
