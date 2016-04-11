@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # coding: utf-8
 
 import csv
@@ -10,11 +10,11 @@ with open('template.html', 'r') as templatefile:
 
 # Read in raw data from csv
 
-with open('aemter.csv', 'rb') as csvfile:
+with open('aemter.csv', 'r') as csvfile:
 	aemterRaw =  csv.reader(csvfile, delimiter=',')
 	aemter = list(aemterRaw)
 
-with open('amtszeiten.csv', 'rb') as csvfile:
+with open('amtszeiten.csv', 'r') as csvfile:
 	zeitenRaw = csv.reader(csvfile, delimiter=',')
 	zeiten = list(zeitenRaw)
 
@@ -28,7 +28,7 @@ cssoutput = ''
 csstemplate = '''
 	.%s {background-color:%s;}'''
 
-with open('importantpeople.txt', 'rb') as importantpeoplefile:
+with open('importantpeople.txt', 'r') as importantpeoplefile:
 	importantpeople = importantpeoplefile.readlines()
 i = 1
 for val in importantpeople:
@@ -71,7 +71,7 @@ for name in nameset:
 ereignissetemplate = '''{id:%s,group:99,content:'%s<br />%s',title:'%s',start:'%s'},
 '''
 
-with open('ereignisse.csv', 'rb') as csvfile:
+with open('ereignisse.csv', 'r') as csvfile:
 	ereignisse = csv.reader(csvfile, delimiter=',')
 	for row in ereignisse:
 		itemoutput += ereignissetemplate % (i, row[0][8:10]+'.'+row[0][5:7]+'.'+row[0][:4], row[1], row[2], row[0])
@@ -83,5 +83,5 @@ output = output.replace("{'ITEMTEMPLATE':1}", itemoutput)
 output = output.replace("'today'", 'today')
 
 # opens an file to write the output to
-with open('index.html', 'w') as outFileHandle:
+with open('index.html', 'w', newline='') as outFileHandle:
 	outFileHandle.write(output)
