@@ -34,7 +34,7 @@ i = 1
 for val in importantpeople:
 	col = Color(hue=float(i)/float(len(importantpeople)), saturation=0.8, luminance=0.8)
 	i += 1
-	cssoutput += csstemplate % (re.sub('\W+', '', val), col)
+	cssoutput += csstemplate % (re.sub('[^a-zA-Z]', '', val), col)
 
 # hier werden jetzt die groups erstellt
 groupoutput = ''
@@ -47,7 +47,7 @@ for row in aemter[:9]:
 	order += 1
 
 for name in nameset:
-	groupoutput += grouptemplate % ("'"+re.sub('\W+', '', name)+"'", name, name + "',className:'person", order)
+	groupoutput += grouptemplate % ("'"+re.sub('[^a-zA-Z]', '', name)+"'", name, name + "',className:'person", order)
 	order += 1
 
 # the template. where data from the csv will be formatted to the correct format
@@ -57,14 +57,14 @@ itemtemplate = '''{id:%s,group:%s,content:'%s',title:'%s',className:'%s',start:'
 
 i = 0
 for row in zeiten:
-	itemoutput += itemtemplate % (i, row[0], row[1], row[1], re.sub('\W+', '', row[1]), row[2], row[3])
+	itemoutput += itemtemplate % (i, row[0], row[1], row[1], re.sub('[^a-zA-Z]', '', row[1]), row[2], row[3])
 	i += 1
 
 #dann die einzelnen Leute
 for name in nameset:
 	for row in zeiten:
 		if row[1] == name:
-			itemoutput += itemtemplate % (i, "'"+re.sub('\W+', '', name)+"'", aemter[int(row[0])][1], aemter[int(row[0])][2], 'person', row[2], row[3])
+			itemoutput += itemtemplate % (i, "'"+re.sub('[^a-zA-Z]', '', name)+"'", aemter[int(row[0])][1], aemter[int(row[0])][2], 'person', row[2], row[3])
 			i += 1
 
 # und jetzt die sonstigen Ereignisse
